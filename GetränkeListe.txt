@@ -24,3 +24,4 @@ Regenwasser 35.6 1000.0 Fass 0.0
 Ardbeg(1979) 11900.0 0.7 Glasflasche 51.5
 Test 1.15 0.33 Plastikflasche 0.0
 Test2 1.0 1.0 test 0.0
+zz 2.0 1.0 Glas 0.0

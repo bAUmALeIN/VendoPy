@@ -5,6 +5,8 @@ from tkinter import ttk
 from tkinter import simpledialog
 import Verkaufsfenster as VK
 from Getraenk import Getraenk
+from PIL import Image, ImageTk
+
 
 class Automat():
     def __init__(self, root):
@@ -18,12 +20,22 @@ class Automat():
         
         self.getraenke_einlesen()
 
+        logo = Image.open("Images/Logo-BBS-ME.jpg")
+        logo = logo.resize((200, 100))
+
+        tk_logo = ImageTk.PhotoImage(logo)
+
+        label_logo = ttk.Label(root,image=tk_logo)
+        label_logo.image = tk_logo
+        label_logo.place(relx=0.5, rely=0.9, anchor="s")
+
+
         if not self.getraenkeListe:
             print("Interne Getränkeliste ist leer")
 
         self.label_MenuText_Top = ttk.Label(
             self.root,
-            text="    Willkommen im PyAutomat\n bitte wählen Sie eine Sorte aus.",
+            text="    Willkommen im PyAutomat",
             font=("Segoe UI", 16, "bold")
         )
         self.label_TextGetraenke = ttk.Label(
@@ -31,6 +43,9 @@ class Automat():
             text=f"Anzahl der Getränke im Sortiment: {self.anzahlGetraenke}",
             font=("Segoe UI", 16, "bold")
         )
+
+
+
 
         self.btnSortiment = ttk.Button(self.root, text="Sortiment", command=self.openSortiment)
         self.btnVerkauf = ttk.Button(self.root, text="Getränke Verkauf starten", command=self.openVending)

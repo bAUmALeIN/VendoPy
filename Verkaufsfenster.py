@@ -112,8 +112,8 @@ class Verkaufsfenster(tk.Toplevel):
 
     def flaschen_ausgeben(self, wechselgeld):
         print(f"Flaschenausgabe | menge: {self.menge}")
-        for i in range(1,self.menge+1):
-            self.ausgabe_label.config(text=f"Flaschenausgabe | Flaschen menge: {i} |  {self.ausgewaehltes_getraenk.name}")
+       # for i in range(1,self.menge+1): self.after oder sleep freezt gui und anwendung -> eigenen Thread erzeugen der auf das label zugreift
+        #    self.ausgabe_label.config(text=f"Flaschenausgabe | Flaschen menge: {i} |  {self.ausgewaehltes_getraenk.name}")
 
         self.after(1500, self.ausgabe_label.config, {"text": f"Flaschenausgabe: Fertig! Wechselgeld: {wechselgeld:.2f} €" if wechselgeld > 0 else "Flaschenausgabe: Fertig!"})
 
